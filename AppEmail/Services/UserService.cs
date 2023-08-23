@@ -1,5 +1,6 @@
 ﻿
 using AppEmail.Models;
+//using AppEmail.Resources;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppEmail.Services
@@ -15,14 +16,19 @@ namespace AppEmail.Services
 
         public async Task<User> AddUser(User user)
         {
+            //user.Password = Utils.EncryptPassword(user.Password);
+            user.SetPassword(user.Password);
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return user;
         }
 
-        public async Task<User> GetUser(string name, string password)
+        public async Task<User> GetUser(string email, string password)
         {
-            User user = await _context.Users.Where(u => u.Name == name && u.Password == password).FirstOrDefaultAsync();
+            //password = Utils.EncryptPassword(password);
+            var usersInMemory = await _context.Users.ToListAsync();
+            //User user = usersInMemory.FirstOrDefault(u => u.Email == email && u.Password == password);
+            User user = usersInMemory.FirstOrDefault(u => u.Email == email && u.VerifyPassword(password));
             return user;
         }
     }

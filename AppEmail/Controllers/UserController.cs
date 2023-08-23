@@ -13,9 +13,9 @@ namespace AppEmail.Controllers
     public class UserController : Controller
     {
 
-        private readonly UserService _service;
+        private readonly IUserService _service;
 
-        public UserController(UserService service)
+        public UserController(IUserService service)
         {
             _service = service;
         }
@@ -29,8 +29,6 @@ namespace AppEmail.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
-            
-            user.Password = Utils.EncryptPassword(user.Password);
             User created = await _service.AddUser(user);
             if(created.Id != 0)
             {
@@ -45,12 +43,14 @@ namespace AppEmail.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
-            User searched = await _service.GetUser(email, Utils.EncryptPassword(password));
-            if(searched != null) 
+            User searched = await _service.GetUser(email, password);
+            if(searched == null) 
             {
                 ViewData["Message"] = "No matches found.";
+                return View();
             }
 
             List<Claim> claims = new List<Claim>()

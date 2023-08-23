@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-header"> Login </div>
+                    <div class="card-body">
+                        <form asp-controller="User" asp-action="Login" method="post">
+
+                            <input class="form-control mb-3" type="text" placeholder="Email" required name="email" />
+                            <input class="form-control mb-3" type="password" placeholder="Password" required name="password" />
+                            <div class="d-grid gap-2 mb-3"> <button class="btn btn-primary" type="submit">Login</button> </div>
+                            @if (ViewData["Message"] != null)
+                            {
+
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert"> @ViewData["Message"]</div>
+                                </div>
+                            }
+                            ¿Don't have an account? 
+                            <a href="@Url.Action("Register","User")"> Register!</a>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
