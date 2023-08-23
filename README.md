@@ -1,6 +1,6 @@
 # AppEmail
 
-Esta es una aplicación sencilla de inicio de sesión construida con ASP.NET Core 6.
+Esta es una aplicación sencilla de inicio de sesión construida con ASP.NET Core MVC.
 
 ## Capturas de Pantalla
 
