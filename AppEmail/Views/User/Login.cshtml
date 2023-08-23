@@ -10,35 +10,61 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 300px;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            border-radius: 5px;
+        }
+
+    </style>
 </head>
-<body>
-    <div class="container mt-5 pt-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-4 col-md-6">
-                <div class="card">
-                    <div class="card-header"> Login </div>
-                    <div class="card-body">
-                        <form asp-controller="User" asp-action="Login" method="post">
-
-                            <input class="form-control mb-3" type="text" placeholder="Email" required name="email" />
-                            <input class="form-control mb-3" type="password" placeholder="Password" required name="password" />
-                            <div class="d-grid gap-2 mb-3"> <button class="btn btn-primary" type="submit">Login</button> </div>
-                            @if (ViewData["Message"] != null)
-                            {
-
-                                <div class="form-group">
-                                    <div class="alert alert-danger" role="alert"> @ViewData["Message"]</div>
-                                </div>
-                            }
-                            ¿Don't have an account? 
-                            <a href="@Url.Action("Register","User")"> Register!</a>
-
-                        </form>
-
-                    </div>
+<body class="bg-image container">
+    <div class="form-container">
+        <h2>Login</h2>
+        <form asp-controller="User" asp-action="Login" method="post">
+            <input class="form-control mb-3" type="text" placeholder="Email" required name="email" />
+            <input class="form-control mb-3" type="password" placeholder="Password" required name="password" />
+            <div class="d-grid gap-2 mb-3"> <button class="btn btn-primary" type="submit">Login</button> </div>
+            @if (ViewData["Message"] != null)
+            {
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert"> @ViewData["Message"]</div>
                 </div>
-            </div>
-        </div>
+            }
+            ¿Don't have an account? 
+            <a href="@Url.Action("Register","User")"> Register!</a>
+        </form>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

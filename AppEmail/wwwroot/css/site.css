@@ -13,10 +13,15 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
 }
 
-body {
-  margin-bottom: 60px;
+.bg-image {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
 }
