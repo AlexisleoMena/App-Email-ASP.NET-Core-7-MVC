@@ -10,46 +10,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>Register</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <style>
-        .container {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .form-container {
-            width: 300px;
-            padding: 20px;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .form-control {
-            border-radius: 5px;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-        }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
-
-        .alert {
-            border-radius: 5px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="~/css/user.css" />
 </head>
-<body class="bg-image container">
+<body class="bg-image user-container">
     <div class="form-container">
         <h2>Register</h2>
         <form asp-controller="User" asp-action="Register" method="post">

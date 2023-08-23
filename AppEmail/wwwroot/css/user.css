@@ -1,0 +1,48 @@
+﻿
+.bg-image {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+}
+
+.user-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    background-color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-control {
+    border-radius: 5px;
+    margin: 25px 0;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.alert {
+    border-radius: 5px;
+}
